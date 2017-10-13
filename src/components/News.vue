@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="News">
     <header class="mui-bar mui-bar-nav">
       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" @click="returnPage()"></a>
       <h1 class="mui-title" v-text="content_title"></h1>
@@ -37,7 +37,7 @@
 
 <script>
   export default {
-    name: 'news',
+    name: 'News',
     data() {
       return {
         content_title: '帮助',
@@ -71,7 +71,7 @@
 
   // export default {
 
-  //   name: 'news',
+  //   name: 'News',
 
   //   data() {
   //     return {
@@ -112,12 +112,12 @@
 
 <!--scss-->
 <style lang="scss">
-  @import "../../static/scss/news.scss";
+  @import "../../static/scss/News.scss";
   @import url("//unpkg.com/element-ui@1.4.4/lib/theme-default/index.css");
   .buozhou {
     padding-top: 50px;
   }
-  
+
 
   .title {
     flex-flow: 1;

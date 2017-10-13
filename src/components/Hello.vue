@@ -4,63 +4,88 @@
       <a class="mui-action-back mui-icon  mui-pull-left"></a>
       <h1 class="mui-title" v-text="content_title"></h1>
     </header>
-    <div class="container">
-      <div class="main-product">
-        <router-link to="/contents/4" class="product-item">
-          <img src="../../static/images/1.png" class="product-img" alt="" />
-          <span class="product-span">在线购票</span>
-        </router-link>
-        <router-link to="/Content7" class="product-item">
-          <img src="../../static/images/2.png" class="product-img" alt="" />
-          <span class="product-span">扫码支付</span>
-        </router-link>
-        <router-link to="/Pay" class="product-item">
-          <img src="../../static/images/3.png" class="product-img" alt="" />
-          <span class="product-span">线路查询</span>
-        </router-link>
-        <router-link to="/content/6" class="product-item">
-          <img src="../../static/images/4.png" class="product-img" alt="" />
-          <span class="product-span">站点信息</span>
-        </router-link>
-      </div>
-      <div class="sosou">
-        <div class="xuan">
-          <div class="block">
-            <span class="demonstration"></span>
-
-            <el-cascader placeholder="请搜素起点" :options="options" filterable></el-cascader>
+    <div class="block">
+      <span class="demonstration">默认 Hover 指示器触发</span>
+      <el-carousel height="300px">
+        <el-carousel-item>
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="http://cd.bendibao.com/traffic/201796/92525.shtm">
+              <img src="../../static/images/q1.jpg">
+              <p class="mui-slider-title">双流机场下飞机后怎么走到地铁站</p>
+            </a>
           </div>
-        </div>
-        <i class="">
-          <img src="../../static/images/27.jpg" class="change">
-        </i>
-        <div class="xuan1">
-          <div class="block">
-            <span class="demonstration"></span>
-
-            <el-cascader placeholder="请搜索终点" :options="options" filterable="" filterable change-on-select></el-cascader>
+        </el-carousel-item>
+        <el-carousel-item>
+          <div class="mui-slider-item">
+            <a href="http://cd.bendibao.com/tour/2017216/89872.shtm">
+              <img src="../../static/images/q2.jpg">
+              <p class="mui-slider-title">2017西岭雪山优惠门票价格及购买指南</p>
+            </a>
           </div>
-          <button class="btn">查询</button>
-        </div>
-      </div>
-      <div class="xianzhi">单价:{{dajia}}元</div>
-      <div class="xianzhi">每个订单最多购买十张单程票</div>
-      <div class="xianzhi1">
-        <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
-      </div>
-      <div class="shoufei">
-        <div>应付金额: {{num1*dajia}}元</div>
-      </div>
-      <div class="blockbut">
-        <span class="demonstratio"></span>
-        <span class="wrapper">
-          <el-button  type="danger"  size="large" >返回修改</el-button>
-         <a href="/Pay"> <el-button type="success" size="large">支付购票 </el-button>  
-       </a> </span>
-
-      </div>
-
+        </el-carousel-item>
+        <el-carousel-item>
+          <div class="mui-slider-item">
+            <a href="http://cd.bendibao.com/traffic/201796/92524.shtm">
+              <img src="../../static/images/q3.jpg">
+              <p class="mui-slider-title">成都地铁10号线公交接驳站点及线路</p>
+            </a>
+          </div>
+        </el-carousel-item>
+        <el-carousel-item>
+          <div class="mui-slider-item">
+            <a href="http://cd.bendibao.com/ditie/">
+              <img src="../../static/images/q4.jpg">
+              <p class="mui-slider-title">成都地铁14号线即将运用</p>
+            </a>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
+    <div class="sosou">
+      <div class="xuan">
+        <div class="block">
+          <span class="demonstration"></span>
+          <el-cascader placeholder="请搜素起点" :options="options" filterable></el-cascader>
+        </div>
+      </div>
+      <div class="back">
+        <i class="el-icon-arrow-down"></i>
+
+      </div>
+      <div class="back">
+        <i class="el-icon-arrow-down"></i>
+
+      </div>
+      <div class="xuan">
+        <div class="block">
+          <span class="demonstration"></span>
+          <el-cascader placeholder="请搜索终点" :options="options" filterable="" filterable change-on-select></el-cascader>
+        </div>
+        <router-link to="/Rote">
+          <button class="btn">查询</button>
+        </router-link>
+      </div>
+    </div>
+    <a href=javascript:window.open( "www.sina.com.cn")>新浪</a>
+    <div class="main-product">
+      <router-link to="/contents/4" class="product-item">
+        <img src="../../static/images/222.jpg" class="product-img" alt="" />
+        <span class="product-span">扫码购票</span>
+      </router-link>
+      <router-link to="/Map" class="product-item">
+        <img src="../../static/images/22.jpg" class="product-img" alt="" />
+        <span class="product-span">在线导航</span>
+      </router-link>
+      <router-link to="/xianlu" class="product-item">
+        <img src="../../static/images/33.jpg" class="product-img" alt="" />
+        <span class="product-span">线路规划</span>
+      </router-link>
+      <router-link to="/Find_List" class="product-item">
+        <img src="../../static/images/44.jpg" class="product-img" alt="" />
+        <span class="product-span">站点信息</span>
+      </router-link>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -80,6 +105,9 @@
       showTitle: function (content_title) {
         this.content_title = content_title;
       },
+      handleChange(value) {
+        console.log(value);
+      }
       // shoufei: function (num2) {
 
       //   num2 = num1 * dajia;
@@ -90,7 +118,7 @@
         num1: 1,
         scrollTop: 0,
         dajia: 7,
-        content_title: '成都地铁小助手',
+        content_title: '成都地铁助手',
         num2: 0,
         options: [{
             value: 'yihaoxian',
@@ -537,8 +565,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -558,8 +586,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -579,8 +607,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -600,8 +628,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -621,8 +649,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -642,8 +670,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -663,8 +691,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -923,7 +951,7 @@
               },
               {
                 value: 'gaoxinzhan',
-                label: '高薪站',
+                label: '中医大省医院',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -944,7 +972,7 @@
               },
               {
                 value: 'jinrongcheng',
-                label: '金融城',
+                label: '通惠门',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -965,7 +993,7 @@
               },
               {
                 value: 'fuhuayuan',
-                label: '孵化园',
+                label: '人民公园',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -986,7 +1014,7 @@
               },
               {
                 value: 'jinchengguangchang',
-                label: '锦城广场',
+                label: '天府广场',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1007,7 +1035,7 @@
               },
               {
                 value: 'shijicheng',
-                label: '世纪城',
+                label: '春熙路',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1028,7 +1056,7 @@
               },
               {
                 value: 'tianfusanjie',
-                label: '天府三街',
+                label: '东门大桥',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1049,7 +1077,7 @@
               },
               {
                 value: 'tianfuwujie',
-                label: '天府五街',
+                label: '牛王庙',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1070,7 +1098,7 @@
               },
               {
                 value: 'huafudadao',
-                label: '华府大道',
+                label: '牛市口',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1091,7 +1119,7 @@
               },
               {
                 value: 'sihe',
-                label: '四河',
+                label: '塔子施公园',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1112,7 +1140,7 @@
               },
               {
                 value: 'guangdu',
-                label: '广都',
+                label: '成都东客站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1132,8 +1160,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '成渝立交',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1153,8 +1181,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '惠王陵',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1174,8 +1202,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '洪河',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1195,8 +1223,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '成都行政学院',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1216,8 +1244,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '大面铺',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1237,8 +1265,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '连山坡',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1258,25 +1286,15 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
-                // children: [{
-                //     value: 'cexiangdaohang',
-                //     label: 'A出口'
-                //   },
-                //   {
-                //     value: 'dingbudaohang',
-                //     label: 'B出口'
-                //   },
-                //   {
-                //     value: 'dingbudaohang',
-                //     label: 'C出口'
-                //   },
-                //   {
-                //     value: 'dingbudaohang',
-                //     label: 'D出口'
-                //   }
-                // ]
+                value: '',
+                label: '书房'
+              },
+              {
+                value: '',
+                label: '龙平路'
+              }, {
+                value: '',
+                label: '龙泉驿'
               },
 
             ],
@@ -1882,7 +1900,7 @@
               },
               {
                 value: 'gaoxinzhan',
-                label: '高薪站',
+                label: '骡马市',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1903,7 +1921,7 @@
               },
               {
                 value: 'jinrongcheng',
-                label: '金融城',
+                label: '宽窄巷子',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1924,7 +1942,7 @@
               },
               {
                 value: 'fuhuayuan',
-                label: '孵化园',
+                label: '中医大省医院站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1945,7 +1963,7 @@
               },
               {
                 value: 'jinchengguangchang',
-                label: '锦城广场',
+                label: '草堂北路站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1966,7 +1984,7 @@
               },
               {
                 value: 'shijicheng',
-                label: '世纪城',
+                label: '蔡桥',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -1987,7 +2005,7 @@
               },
               {
                 value: 'tianfusanjie',
-                label: '天府三街',
+                label: '西南财大站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2008,7 +2026,7 @@
               },
               {
                 value: 'tianfuwujie',
-                label: '天府五街',
+                label: '文化宫站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2029,7 +2047,7 @@
               },
               {
                 value: 'huafudadao',
-                label: '华府大道',
+                label: '清江西路站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2050,7 +2068,7 @@
               },
               {
                 value: 'sihe',
-                label: '四河',
+                label: '成都西站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2071,7 +2089,7 @@
               },
               {
                 value: 'guangdu',
-                label: '广都',
+                label: '中坝',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2091,8 +2109,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '非遗博览园',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2112,8 +2130,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '马场坝站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2133,8 +2151,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '凤凰大街',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2154,8 +2172,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '涌泉站',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2175,8 +2193,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '光华果园',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2196,8 +2214,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '南熏大道',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2217,8 +2235,8 @@
                 // ]
               },
               {
-                // value: '',
-                // label: '',
+                value: '',
+                label: '凤溪河',
                 // children: [{
                 //     value: 'cexiangdaohang',
                 //     label: 'A出口'
@@ -2236,6 +2254,12 @@
                 //     label: 'D出口'
                 //   }
                 // ]
+              }, {
+                value: '',
+                label: '杨柳河'
+              }, {
+                value: '',
+                label: '万盛站'
               },
 
             ],
@@ -2384,11 +2408,32 @@
 </script>
 
 <!--scss-->
-<style lang="scss">
+<style lang="scss" scoped>
   //@import "./common/stylus/mixin.styl";
   @import "../../static/scss/hello.scss";
   .demonstratio {
     padding-left: 40px;
+  }
+
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 150px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
+
+  .back {
+    padding-left: 119px;
+    padding-top: -1px;
   }
 
   .shoufei {
@@ -2397,7 +2442,7 @@
   }
 
   .blockbut {
-    padding-left: 29px;
+    padding-left: 19px;
     padding-top: 19px;
   }
 
@@ -2406,15 +2451,21 @@
   }
 
   .sosou {
-    margin-left: 40px;
-    padding-left: 4px;
+    margin-left: 41px;
+    padding-left: 6px;
     width: 80%;
-    height: 160px;
-    background: #ffd;
+    height: 167px;
+    background: #eee;
+    border-radius: 3%;
+    margin-top: 16px;
+    margin-bottom: 34px;
+  }
+
+  .jiaohuan {
     border-radius: 3%;
   }
 
-  .change {
+  .change1 {
     margin: -9px;
     padding-left: 105px;
   }
@@ -2487,7 +2538,7 @@
     display: block;
     width: 56px;
     height: 96px;
-    margin-left: 210px;
+    margin-left: 222px;
     background: #ff4136;
     border: none;
     font-size: 16px;
@@ -2495,7 +2546,7 @@
     cursor: pointer;
     outline: 0;
     font-family: Microsoft yahei;
-    margin-top: -124px;
+    margin-top: -136px;
   }
 
   .switch {

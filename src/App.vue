@@ -16,7 +16,7 @@
           <span class="mui-icon mui-icon-eye"></span>
           <span class="mui-tab-label">地图</span>
         </a>
-        <a class="mui-tab-item" href="#/news" :class="{'mui-active':nav_active_id == 3}" @click="nav_active_id = 3">
+        <a class="mui-tab-item" href="#/News" :class="{'mui-active':nav_active_id == 3}" @click="nav_active_id = 3">
           <span class="mui-icon mui-icon-email"></span>
           <span class="mui-tab-label">帮助</span>
         </a>

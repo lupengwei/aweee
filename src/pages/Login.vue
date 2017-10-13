@@ -1,24 +1,22 @@
 <template>
-  <div class="login">
+  <div class="login1">
     <header class="mui-bar mui-bar-nav">
       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" @click="returnPage()"></a>
       <h1 class="mui-title" v-text="content_title"></h1>
     </header>
 
     <div class="login-div">
-      <img class="logo" src="../../static/images/272.jpg">
-
       <div id="login_div" v-if="show == 'login'">
-        <input label="手机号" placeholder="请输入手机号" type="tel" :value="tel" @input="tel = arguments[0]" :attr="{ minlength:11, maxlength:11}"
-          :state="status.tel">
+        <input label="手机号" placeholder="请输入手机号" type="tel" :value="tel" @input=" " :attr="{ minlength:11, maxlength:11}" :state="status.tel">
         </input>
-        <input label="密码" placeholder="请输入密码(8 - 16位)" type="password" :value="password" @input="password = arguments[0]" :attr="{ minlength:8, maxlength:16}"
+        <input label="密码" placeholder="请输入密码(8 - 16位)" type="password" :value="password" @input=" " :attr="{ minlength:8, maxlength:16}"
           :state="status.password">
         </input>
       </div>
 
       <div id="register_div" v-if="show == 'register'">
-        <input label="用户名" placeholder="请输入用户名(2 - 4位)" :value="username" @input="username = arguments[0]" :state="status.user" :attr="{ minlength:2, maxlength:6}">
+        <input label="用户名" placeholder="请输入用户名(2 - 4位)" type="email" :value="username" @input="username = arguments[0]" :state="status.user"
+          :attr="{ minlength:2, maxlength:6}">
         </input>
         <input label="邮箱" placeholder="请输入邮箱" type="email" :value="email" @input="email = arguments[0]" :state="status.email">
         </input>
@@ -35,14 +33,29 @@
         <span class="left">勾选即表示接收<a href="#" class="agreement-text">《NES使用协议》</a></span>
         <span class="right"><a href="#" class="forget">忘记密码?</a></span>
       </div>
-      <button class="register  submit" @click="Jump('login')" :disabled="!checked">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+      <button class="login submit" @click="Jump('login')" :disabled="!checked">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
       <button class="register submit" @click="Jump('register')" :disabled="!checked">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
     </div>
+    <span class="others">其他登录方式</span>
+    <ul class="methods">
+      <li>
+        <img src="../assets/weixin.png" alt="">
+      </li>
+      <li>
+        <img src="../assets/weibo.png" alt="">
+      </li>
+      <li>
+        <img src="../assets/qq.png" alt="">
+      </li>
+    </ul>
   </div>
 
 </template>
 
 <script>
+  import {
+    MessageBox
+  } from 'mint-ui'
   export default {
     name: 'login',
     data() {
@@ -87,7 +100,87 @@
 
       },
 
+      //按钮点击的时候进行验证 =》 提交 =》 存本地 =》 本地提取 =》 完成登录
+      test: function () {
+        console.log(this)
+      },
+      Jump: function (show) {
+        //当前状态再次点击 则表示用户想提交表单
+        if (this.show == show) {
+          if (show == 'login' && window.localStorage.user != null) {
+            let localuser = JSON.parse(window.localStorage.user)
+            if (localuser.tel == this.tel) {
+              this.$router.replace({
+                path: 'personinfo'
+              })
+            } else {
+              MessageBox('提示', '请输入正确的用户名和密码');
+            }
+          } else {
+            this.Check()
+          }
+        } else {
+          this.change(show)
+        }
+      },
+      change: function (show) {
+        this.show = show
+      },
+      //前端表单基础验证
+      Check: function () {
+        const email_filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+        const tel_filter = /^1[34578]{1}\d{9}$/
+        this.username.length >= 2 ? this.status.user = 'success' : this.status.user = 'error'
+        email_filter.test(this.email) ? this.status.email = 'success' : this.status.email = 'error'
+        this.password.length >= 8 ? this.status.password = 'success' : this.status.password = 'error'
+        tel_filter.test(this.tel) ? this.status.tel = 'success' : this.status.tel = 'error'
+        this.Submit()
+      },
+      //表单提交
+      Submit: function () {
+        let j = 0
+        for (let i in this.status) {
+          //所有数据通过验证，则提交表单
+          if (this.status[i] == 'success') {
+            j++
+          }
+        }
+        if (j == 4) {
+          if (document.getElementById("login_form")) {
+            document.getElementById("login_form").submit()
+          } else {
+            document.getElementById("register_form").submit()
+          }
+          let user = {
+            'username': this.username,
+            'email': this.email,
+            'password': this.password,
+            'tel': this.tel
+          }
+          window.localStorage.user = JSON.stringify(user) //将用户数据存储在本地
+          // {'username':this.user, 'email':this.email, 'password':this.password, 'tel':this.tel}
+          this.changePerson(this.username)
+          this.$router.replace({
+            path: 'personinfo'
+          })
+        } else {
+          console.log('请输入正确的用户名和密码')
+          MessageBox('提示', '请输入正确的用户名和密码');
+        }
+      },
+      changePerson(item) {
+        this.$store.dispatch('changePerson', item)
+      }
     },
+    mounted: function () {
+      if (window.localStorage.user !== undefined) {
+        let localuser = JSON.parse(window.localStorage.user) //如果本地数据存在，则默认填入本地数据 
+        this.username = localuser.username
+        this.email = localuser.email
+        this.password = localuser.password
+        this.tel = localuser.tel
+      }
+    }
 
   }
 
@@ -111,7 +204,7 @@
 
   .login-div {
     width: 90%;
-    margin: 80px auto 100px auto;
+    margin: 100px auto 100px auto;
     border-radius: 5px;
   }
 

@@ -8,7 +8,7 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 html {
-  font-family:"SimSun",sans-serif;
+  font-family: "SimSun", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -1350,7 +1350,7 @@ input[type=submit]:enabled:active {
 
 .mui-bar-tab .mui-tab-item .mui-icon {
   top: 3px;
-  width: 24px;
+  width: 35px;
   height: 24px;
   padding-top: 0;
   padding-bottom: 0
@@ -4162,13 +4162,6 @@ body>.mui-progressbar {
   margin: 2px 8px
 }
 
-@font-face {
-  font-family: Muiicons;
-  font-weight: 400;
-  font-style: normal;
-//  src: url(mui.ttf) format('truetype')
-}
-
 .mui-icon {
   font-family: Muiicons;
   font-size: 24px;
@@ -4658,4 +4651,3 @@ body>.mui-progressbar {
   height: 100%;
   border: 0
 }
-

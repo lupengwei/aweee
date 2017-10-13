@@ -42,7 +42,8 @@
 
             <el-cascader placeholder="请搜索终点" :options="options" filterable="" filterable change-on-select></el-cascader>
           </div>
-          <button class="btn">查询</button>
+          <a href="#Pay"><button class="btn">查询</button></a>
+
         </div>
       </div>
       <!-- <div class="xianzhi">每个订单最多购买十张单程票</div>
@@ -2426,14 +2427,7 @@
     padding-top: 5px;
   }
 
-  .sosou {
-    margin-left: 40px;
-    padding-left: 4px;
-    width: 80%;
-    height: 160px;
-    background: #ffd;
-    border-radius: 3%;
-  }
+
 
   .xuan {
     padding-left: 23px;

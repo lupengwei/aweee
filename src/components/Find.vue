@@ -4,11 +4,6 @@
       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" @click="returnPage()"></a>
       <h1 class="mui-title" v-text="content_title"></h1>
     </header>
-    <!-- <p class="searchBox">
-            <b class="iconfont">&#xe61a;</b>
-            <input type="text" placeholder="歌手/歌名/专辑名/歌词" v-model="searchKey" @keyup.enter="search(searchKey)">
-            <button class="iconfont" @click="search(searchKey)">&#xe601;</button>
-        </p> -->
     <div class="ditu">
       <img src="../../static/images/1.jpg" class="tu">
     </div>
@@ -21,7 +16,8 @@
     data() {
       return {
         scrollTop: 0,
-        content_title: '站点'
+        content_title: '站点',
+        msg: 'vue-amap向你问好！'
       }
     },
     created: function () {
@@ -90,6 +86,11 @@
   .searchBox b,
   .searchBox button {
     margin: 0 1rem;
+  }
+
+  .amap-wrapper {
+    width: 500px;
+    height: 500px;
   }
 
 </style>

@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/3/27.
  */
 export default {
-  name: 'news',
+  name: 'News',
   data() {
     return {
       content_title: '帮助'
