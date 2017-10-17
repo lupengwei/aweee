@@ -67,6 +67,26 @@
       </div>
     </div>
     <a href=javascript:window.open( "www.sina.com.cn")>新浪</a>
+    <fieldset class="layui-elem-field site-demo-button">
+      <legend>按钮组</legend>
+      <div class="layui-btn-group">
+        <button class="layui-btn">增加</button>
+        <button class="layui-btn ">编辑</button>
+        <button class="layui-btn">删除</button>
+      </div>
+      <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-small"><i class="layui-icon"></i></button>
+        <button class="layui-btn layui-btn-small"><i class="layui-icon"></i></button>
+        <button class="layui-btn layui-btn-small"><i class="layui-icon"></i></button>
+        <button class="layui-btn layui-btn-small"><i class="layui-icon"></i></button>
+      </div>
+      <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-primary layui-btn-small">文字</button>
+        <button class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+        <button class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+        <button class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+      </div>
+    </fieldset>
     <div class="main-product">
       <router-link to="/contents/4" class="product-item">
         <img src="../../static/images/222.jpg" class="product-img" alt="" />
